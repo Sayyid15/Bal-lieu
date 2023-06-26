@@ -1,20 +1,22 @@
 import React from "react";
-import Rectangle from './Rectangle'
+import Rectangle from './rectangle'
 import {StyleSheet, SafeAreaView, View, Text, Pressable} from "react-native";
 import * as ScreenOrientation from 'expo-screen-orientation';
 import {OrientationLock} from "expo-screen-orientation";
 
 
-const GameMode = () => {
+const Gamemodes = () => {
     ScreenOrientation.lockAsync(OrientationLock.LANDSCAPE = 5);
 
     return (
+
         <SafeAreaView style={styles.main}>
 
-            <Rectangle/>
 
             <View style={styles.row1}>
-            <View>
+                <Rectangle/>
+
+                <View>
                 <Pressable style={styles.game}>
                     <Text style={styles.text}> Ranked 6 vs 6 </Text>
                 </Pressable>
@@ -77,37 +79,38 @@ const GameMode = () => {
         </SafeAreaView>
     )
 }
-export default GameMode;
+export default Gamemodes;
 
 
 const styles = StyleSheet.create({
     main: {
         flex: 1,
         backgroundColor: ('#2D6B51'),
-        overflow: "hidden",
         flexDirection: "row",
+        alignContent:"center",
+        justifyContent:"center",
 
-    }, text:{
+
+    } ,text:{
         backgroundColor:('#16B874'),
         width:125,
         textAlign:"center",
         borderRadius:20
     },game: {
         backgroundColor: "white",
-        padding: 2,
-        width: 120,
-        height: 70,
+        padding: 1,
+        width: '70%',
+        height: '120%',
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 20,
-        margin :20
+        margin :20,
 
     },row1:{
-       marginLeft:120,
         flexDirection:"row",
         position:"absolute",
+
     },row2:{
-        marginLeft:120,
         flexDirection:"row",
         position:"absolute",
         top:100,
@@ -115,7 +118,6 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         position:"absolute",
         top:200,
-        marginLeft:280
 
 
 

@@ -3,7 +3,7 @@ import {StyleSheet, SafeAreaView, View, ScrollView} from "react-native";
 import {Table, Row, TableWrapper, Rows} from "react-native-table-component";
 import * as ScreenOrientation from 'expo-screen-orientation';
 import {OrientationLock} from "expo-screen-orientation";
-import Rectangle from "./Rectangle";
+import Rectangle from "./rectangle";
 
 const header = [
     'Rank', 'Rating', 'Position', 'Record'
