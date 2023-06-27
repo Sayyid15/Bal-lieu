@@ -104,7 +104,7 @@ alignItems:"center"
         height: 70,
         margin: 5,
         borderRadius:5,
-        backgroundColor:('#16B874'),    },
+        backgroundColor:('#1CEB95'),    },
 
     trophyIcon: {
         left :400
@@ -112,7 +112,7 @@ alignItems:"center"
 
     name: {
         fontWeight: '600',
-        color: '#D9D9D9',
+        color: 'black',
         fontSize: 24,
         marginLeft: 10
     }, bronzeTrophy: {

@@ -5,7 +5,7 @@ import * as ScreenOrientation from 'expo-screen-orientation';
 import {OrientationLock} from "expo-screen-orientation";
 
 
-const Gamemodes = () => {
+const GameModes = () => {
     ScreenOrientation.lockAsync(OrientationLock.LANDSCAPE = 5);
 
     return (
@@ -79,7 +79,7 @@ const Gamemodes = () => {
         </SafeAreaView>
     )
 }
-export default Gamemodes;
+export default GameModes;
 
 
 const styles = StyleSheet.create({

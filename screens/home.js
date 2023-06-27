@@ -1,15 +1,17 @@
-import { View, SafeAreaView, StyleSheet, Pressable, Image,} from "react-native";
+import {View, SafeAreaView, StyleSheet, Pressable, Image, StatusBar,} from "react-native";
 import * as ScreenOrientation from 'expo-screen-orientation';
 import {OrientationLock} from "expo-screen-orientation";
 import React from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Circle from "./circle";
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
-const Home = () => {
+
+const Home = ({navigation}) => {
     ScreenOrientation.lockAsync(OrientationLock.LANDSCAPE = 5);
     return (
         <SafeAreaView style={styles.main}>
-
+            <StatusBar style="auto"/>
             <View style={styles.shadow}/>
             <View style={styles.shadow2}/>
             <View>
@@ -34,42 +36,47 @@ const Home = () => {
 
                 <View style={styles.row1}>
                     <View>
-                        <Pressable style={styles.button}>
+                        <Pressable style={styles.button}
+                                   onPress={() => navigation.navigate('GameMode', {screen: "gameModes"})}
+                        >
                             <FontAwesome name="play-circle" size={60}/>
                         </Pressable>
                     </View>
                     <View>
-                        <Pressable style={styles.button}>
+                        <Pressable style={styles.button}
+                                   onPress={() => navigation.navigate('Stats', {screen: "playerDetail"})}
+                        >
                             <FontAwesome name="id-card" size={60}/>
                         </Pressable>
                     </View>
 
-<View>
-    <View>
-        <Pressable style={styles.bl1}>
-            <FontAwesome name="dollar" size={35}/>
-        </Pressable>
-    </View>
-    <View>
-        <Pressable style={styles.bl1}>
-            <FontAwesome name="list" size={35}/>
-        </Pressable>
-    </View>
-    <View>
-        <Pressable style={styles.bl1}>
-            <FontAwesome name="gear" size={35}/>
-        </Pressable>
-    </View>
-</View>
+                    <View>
+                        <View>
+                            <Pressable style={styles.bl1}>
+                                <FontAwesome name="dollar" size={35}/>
+                            </Pressable>
+                        </View>
+                        <View>
+                            <Pressable style={styles.bl1}>
+                                <FontAwesome name="list" size={35}/>
+                            </Pressable>
+                        </View>
+                        <View>
+                            <Pressable style={styles.bl1}>
+                                <FontAwesome name="gear" size={35}/>
+                            </Pressable>
+                        </View>
+                    </View>
 
                     <View style={styles.row2}>
                         <View>
                             <Pressable style={styles.button}>
-                                <FontAwesome name="star" size={60}/>
+                                <FontAwesome5 name="medal" size={60}/>
                             </Pressable>
                         </View>
                         <View>
-                            <Pressable style={styles.button}>
+                            <Pressable style={styles.button}
+                                       onPress={() => navigation.navigate('Achievements', {screen: "achievements"})}>
                                 <FontAwesome name="trophy" size={60}/>
                             </Pressable>
                         </View>
@@ -149,37 +156,37 @@ const styles = StyleSheet.create({
         top: "20%",
         justifyContent: "center",
         alignItems: "center",
-        shadowOpacity:3
+        shadowOpacity: 3
     },
-    s1:{
-        backgroundColor:"#A83E2ABF",
-        transform: [{ rotate: '135deg' }],
-        width:2,
-        height:250,
-        left :75,
-        top:100,
+    s1: {
+        backgroundColor: "#A83E2ABF",
+        transform: [{rotate: '135deg'}],
+        width: 2,
+        height: 250,
+        left: 75,
+        top: 100,
         position: "absolute",
-    }, s2:{
-        backgroundColor:"#A83E2ABF",
-        transform: [{ rotate: '135deg' }],
-        width:2,
-        height:250,
-        top:10,
-        left :50,
+    }, s2: {
+        backgroundColor: "#A83E2ABF",
+        transform: [{rotate: '135deg'}],
+        width: 2,
+        height: 250,
+        top: 10,
+        left: 50,
         position: "absolute",
-    }, s3:{
-        backgroundColor:"#A83E2ABF",
-        transform: [{ rotate: '45deg' }],
-        width:2,
-        height:250,
-        top:-95,
-        left :250,
+    }, s3: {
+        backgroundColor: "#A83E2ABF",
+        transform: [{rotate: '45deg'}],
+        width: 2,
+        height: 250,
+        top: -95,
+        left: 250,
         position: "absolute",
     }, s4: {
         backgroundColor: "#A83E2ABF",
         transform: [{rotate: '45deg'}],
         width: 2,
-        top:5,
+        top: 5,
         height: 250,
         left: 215,
         position: "absolute",
@@ -189,7 +196,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#A83E2ABF",
         transform: [{rotate: '45deg'}],
         width: 2,
-        top:-30,
+        top: -30,
         height: 250,
         left: 65,
         position: "absolute",
@@ -198,7 +205,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#A83E2ABF",
         transform: [{rotate: '45deg'}],
         width: 2,
-        top:-30,
+        top: -30,
         height: 280,
         left: 5,
         position: "absolute",
@@ -208,7 +215,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#A83E2ABF",
         transform: [{rotate: '135deg'}],
         width: 2,
-        top:5,
+        top: 5,
         height: 400,
         left: 650,
         position: "absolute",
@@ -219,7 +226,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#A83E2ABF",
         transform: [{rotate: '135deg'}],
         width: 2,
-        top:5,
+        top: 5,
         height: 400,
         left: 600,
         position: "absolute",
@@ -228,7 +235,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#A83E2ABF",
         transform: [{rotate: '135deg'}],
         width: 2,
-        top:200,
+        top: 200,
         height: 100,
         left: 20,
         position: "absolute",
@@ -237,7 +244,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#A83E2ABF",
         transform: [{rotate: '135deg'}],
         width: 2,
-        top:5,
+        top: 5,
         height: 400,
         left: -75,
         position: "absolute",

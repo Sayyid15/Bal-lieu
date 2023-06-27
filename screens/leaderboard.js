@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         borderRadius:5,
     },
     rows: {
-        backgroundColor: ('#53B88D'),
+        backgroundColor: ('#1CEB95'),
         heightArr: [28, 28, 28, 28],
         flexArr: [1, 2, 2, 2],
         flexDirection: "row",

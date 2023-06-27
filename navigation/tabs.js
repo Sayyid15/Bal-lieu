@@ -3,11 +3,15 @@ import {OrientationLock} from "expo-screen-orientation";
 import {NavigationContainer} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from "../screens/home";
-import gameModes from "../screens/gamemodes";
+import gameModes from "../screens/gameModes";
 import Leaderboard from "../screens/leaderboard";
 import Achievements from "../screens/achievements";
+import PlayerDetail from "../screens/playerDetails.js"
 import Rectangle from '../screens/rectangle'
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import Icon from 'react-native-vector-icons/AntDesign';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+
 
 
 
@@ -23,7 +27,24 @@ const Tabs = () => {
         <NavigationContainer>
             <Rectangle/>
             <Tab.Navigator
-                screenOptions={{headerShown:false}}
+                screenOptions={{
+                    tabBarStyle: {
+                        position: 'absolute',
+                        bottom:25,
+                        left: 20,
+                        right: 20,
+                        elevation: 0,
+                        backgroundColor: '#16B874',
+                        borderRadius:15,
+                        height:50,
+                    },
+                    tabBarActiveTintColor: "#ffffff",
+                    tabBarInactiveTintColor: "black",
+                    headerShown:false
+
+
+
+                }}
             >
                 <Tab.Screen
                     name={"Home"}
@@ -41,7 +62,7 @@ const Tabs = () => {
                     options={{
                         tabBarLabel:"",
                         tabBarIcon:({color,size}) =>
-                            <FontAwesome name="bars" size={size} color={color} />
+                            <MaterialCommunityIcons name="podium" size={size} color={color} />
                     }}
                 />
 
@@ -49,14 +70,9 @@ const Tabs = () => {
                     name={"GameMode"}
                     component={gameModes}
                     options={{
-                    headerShown: 'GameMode',
-                        headerStyle :{
-                        borderRadius:4
-                        }
-                        ,
                         tabBarLabel:"",
                         tabBarIcon:({color,size}) =>
-                            <FontAwesome name="play" size={size} color={color} />
+                            <MaterialCommunityIcons name="soccer-field" size={size} color={color} />
                     }}
                 />
 
@@ -64,13 +80,19 @@ const Tabs = () => {
                     name={"Achievements"}
                     component={Achievements}
                     options={{
-
-
                         tabBarLabel:"",
                         tabBarIcon:({color,size}) =>
-                            <FontAwesome name="play" size={size} color={color} />
+                            <FontAwesome name="trophy" size={size} color={color} />
                     }}
                 />
+                <Tab.Screen name="Stats" component={PlayerDetail} options={
+                    {
+                        tabBarLabel:"",
+                        tabBarIcon:({color,size}) =>
+                            <Icon name="barschart" size={size} color={color} />
+                    }
+                }/>
+
             </Tab.Navigator>
         </NavigationContainer>
 
